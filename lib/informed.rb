@@ -165,6 +165,7 @@ module Informed
       logger.send(level, type.new(**method_context).to_h)
     end
 
+    # Standard message that is logged when informed upon methods are executed.
     class Message
       # @return [Hash] from {Informant#inform_on}
       attr_accessor :keyword_arguments
@@ -184,6 +185,9 @@ module Informed
         self.method = method
       end
 
+      # The message for the informant to log, in hash form. Actual return value
+      # depends on {#also_log}
+      # @return [Hash]
       def to_h
         message = { method: method }
         if also_log[:values]
@@ -197,6 +201,8 @@ module Informed
       end
     end
 
+
+    # Message logged when an informed upon method begins to be executed.
     class StartingMessage < Message
       # @return [Hash] a Hash with `status: :starting` merged with {Message#to_h}
       def to_h
@@ -204,6 +210,7 @@ module Informed
       end
     end
 
+    # Message that's logged when an informed upon method is completed
     class DoneMessage < Message
       attr_accessor :result
 
