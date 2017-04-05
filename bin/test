@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+set -e
+
+for version in $(rbenv versions --bare); do
+  export RBENV_VERSION=$version
+  ruby --version
+  ruby test/informed_test.rb
+done
+
+export RBENV_VERSION=''
+ruby --version
+ruby test/informed_test.rb --documentation
+
