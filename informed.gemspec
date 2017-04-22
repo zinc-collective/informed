@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Zee Spencer"]
   spec.email         = ["zee@zincma.de"]
 
-  spec.summary       = %q{Inform on your method calls for great logging}
+  spec.summary       = %q{Informs on method calls so you know what your app is doing and why}
   spec.description   = %q{You can't spell Debugging without Logging.}
   spec.homepage      = "https://github.com/zincmade/informed"
   spec.license       = "MIT"
