@@ -1,12 +1,32 @@
 # Informed
 ![build status](https://travis-ci.org/zincmade/informed.svg?branch=primary)
 
-## Installation
+Informed improves application debuggability by:
+* Logging which methods were called.
+* Aggregating useful data, such as the result of the call, keyword arguments provided, or the result of related instance methods
+* Exposing when a method starts and finishes
+
+Informed does *not*:
+* Format logs. It provides a hash to the logger you provide, and it's up to you
+  to format your logs in a useful manner. This will depend on what log
+  aggregation system you are using.
+* Store logs. You will need to configure your applications logger correctly to
+  ensure logs will actually reach your log aggregator.
+* Provide useful analytics or performance tuning data. Logs are for informing
+  your incident detection system, debugging, and auditing. While one may get
+  *some* amount of metrics utility out of them, products oriented towards
+  exposing the insights you are looking for are generally better equipped for
+  that.
+
+
+## Usage
+
+### Install
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'informed'
+gem 'informed', '~> 1.0'
 ```
 
 And then execute:
@@ -17,11 +37,7 @@ Or install it yourself as:
 
     $ gem install informed
 
-## Usage
-
-Informed, when included, makes it easy to log method calls when they start and
-finish. It provides a means to log additional data, such as the result of said
-calls, keyword arguments, or other instance methods.
+### Instrument
 
 ```
 
@@ -72,6 +88,19 @@ FancyService.new(fanciness: 8).do_something(force: false)
 #  I, [2017-04-04T19:49:10.485596 #29957]  INFO -- : {:method=>:do_something, :values=>{:fancy?=>false, :force=>false, :fanciness=>8}, :status=>:done, :result=>"so plain"}
 # => "so plain"
 ```
+
+### Configure
+
+While we default to logging to standard out, Informed is Logger-agnostic. You
+may provide a logger to informed that is interface compatible with the Logger
+class in the Ruby standard library.
+
+To do so either:
+* Set `Informed.logger` to your application logger. (Rails Example:
+  `Informed.logger = Rails.logger`)
+* Define an instance method `logger` on the informed upon class and have it
+  return whatever logger you want.
+
 
 ## Development
 
