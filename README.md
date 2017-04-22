@@ -1,4 +1,5 @@
 # Informed
+![build status](https://travis-ci.org/zincmade/informed.svg?branch=primary)
 
 ## Installation
 
