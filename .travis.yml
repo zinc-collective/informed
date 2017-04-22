@@ -5,4 +5,4 @@ rvm:
   - 2.3.4
   - 2.4.1
 before_install: gem install bundler -v 1.14.6
-script: bin/test
+script: ruby test/informed_test.rb --documentation
