@@ -189,7 +189,7 @@ module Informed
       # depends on {#also_log}
       # @return [Hash]
       def to_h
-        message = { method: method }
+        message = { method: method, class: informee.class.name }
         if also_log[:values]
           message[:values] = {}
           also_log[:values].each do |local|

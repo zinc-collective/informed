@@ -68,10 +68,10 @@ describe Informed do
     describe "the also_log: keyword arg" do
       describe "when nil (default)" do
         it "includes the start" do
-          assert_includes logs, { status: :starting, method: :method_without_arguments }
+          assert_includes logs, { status: :starting, method: :method_without_arguments, class: consumer.class.name }
         end
         it "includes the end" do
-          assert_includes logs, { status: :done, method: :method_without_arguments }
+          assert_includes logs, { status: :done, method: :method_without_arguments, class: consumer.class.name }
         end
 
         it "does not log the result" do

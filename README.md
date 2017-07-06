@@ -72,21 +72,21 @@ class FancyService
 end
 
 FancyService.new(fanciness: 12).do_something
-#  I, [2017-04-04T19:46:05.256753 #29957]  INFO -- : {:method=>:do_something, :values=>{:fancy?=>true, :fanciness=>12}, :status=>:starting}
-#  I, [2017-04-04T19:46:05.256896 #29957]  INFO -- : {:method=>:do_something, :values=>{:fancy?=>true, :fanciness=>12}, :status=>:done, :result=>"so fancy"}
+#  I, [2017-07-05T18:27:13.431695 #3297]  INFO -- : {:method=>:do_something, :class=>"FancyService", :values=>{:fancy?=>true, :fanciness=>12}, :status=>:starting}
+#  I, [2017-07-05T18:27:13.431780 #3297]  INFO -- : {:method=>:do_something, :class=>"FancyService", :values=>{:fancy?=>true, :fanciness=>12}, :status=>:done, :result=>"so fancy"}
 #  => "so fancy"
 FancyService.new(fanciness: 12).do_something(force: true)
-#  I, [2017-04-04T19:46:09.043051 #29957]  INFO -- : {:method=>:do_something, :values=>{:fancy?=>true, :force=>true, :fanciness=>12}, :status=>:starting}
-#  I, [2017-04-04T19:46:09.043159 #29957]  INFO -- : {:method=>:do_something, :values=>{:fancy?=>true, :force=>true, :fanciness=>12}, :status=>:done, :result=>"so fancy"}
+#  I, [2017-07-05T18:27:57.612778 #3297]  INFO -- : {:method=>:do_something, :class=>"FancyService", :values=>{:fancy?=>true, :force=>true, :fanciness=>12}, :status=>:starting}
+#  I, [2017-07-05T18:27:57.612853 #3297]  INFO -- : {:method=>:do_something, :class=>"FancyService", :values=>{:fancy?=>true, :force=>true, :fanciness=>12}, :status=>:done, :result=>"so fancy"}
 #  => "so fancy"
 FancyService.new(fanciness: 8).do_something(force: true)
-#  I, [2017-04-04T19:46:17.968960 #29957]  INFO -- : {:method=>:do_something, :values=>{:fancy?=>false, :force=>true, :fanciness=>8}, :status=>:starting}
-#  I, [2017-04-04T19:46:17.969066 #29957]  INFO -- : {:method=>:do_something, :values=>{:fancy?=>false, :force=>true, :fanciness=>8}, :status=>:done, :result=>"so fancy"}
+#  I, [2017-07-05T18:28:35.282196 #3297]  INFO -- : {:method=>:do_something, :class=>"FancyService", :values=>{:fancy?=>false, :force=>true, :fanciness=>8}, :status=>:starting}
+#  I, [2017-07-05T18:28:35.282272 #3297]  INFO -- : {:method=>:do_something, :class=>"FancyService", :values=>{:fancy?=>false, :force=>true, :fanciness=>8}, :status=>:done, :result=>"so fancy"}
 #  => "so fancy"
 FancyService.new(fanciness: 8).do_something(force: false)
-#  I, [2017-04-04T19:49:10.485462 #29957]  INFO -- : {:method=>:do_something, :values=>{:fancy?=>false, :force=>false, :fanciness=>8}, :status=>:starting}
-#  I, [2017-04-04T19:49:10.485596 #29957]  INFO -- : {:method=>:do_something, :values=>{:fancy?=>false, :force=>false, :fanciness=>8}, :status=>:done, :result=>"so plain"}
-# => "so plain"
+#  I, [2017-07-05T18:29:13.319488 #3297]  INFO -- : {:method=>:do_something, :class=>"FancyService", :values=>{:fancy?=>false, :force=>false, :fanciness=>8}, :status=>:starting}
+#  I, [2017-07-05T18:29:13.319560 #3297]  INFO -- : {:method=>:do_something, :class=>"FancyService", :values=>{:fancy?=>false, :force=>false, :fanciness=>8}, :status=>:done, :result=>"so plain"}
+#  => "so plain"
 ```
 
 ### Configure
