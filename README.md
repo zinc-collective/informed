@@ -1,5 +1,5 @@
 # Informed
-![build status](https://travis-ci.org/zincmade/informed.svg?branch=primary)
+![build status](https://api.travis-ci.org/wecohere/informed.svg?branch=primary)
 
 Informed improves application debuggability by:
 * Logging which methods were called.
