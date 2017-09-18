@@ -91,8 +91,12 @@ module Informed
     def inform_on(method, level:, also_log: {})
       alias_method :"unwatched_#{method}", method
       informant = Informant.new(method: method, also_log: also_log, level: level)
-      define_method method do |*arguments, **keyword_arguments|
-        informant.inform_on(informee: self, logger: logger, arguments: arguments, keyword_arguments: keyword_arguments)
+      define_method method do |*arguments, **keyword_arguments, &block|
+        informant.inform_on(informee: self,
+                            logger: logger,
+                            arguments: arguments,
+                            keyword_arguments: keyword_arguments,
+                            block: block)
       end
     end
   end
@@ -145,17 +149,17 @@ module Informed
     #                                 be logged if specified in the :values
     #                                 array in {#also_log}.
     # @return the result of the informed upon method.
-    def inform_on(logger:, arguments:, keyword_arguments:, informee:)
+    def inform_on(logger:, arguments:, keyword_arguments:, informee:, block: nil)
       method_context = { keyword_arguments: keyword_arguments, method: method, also_log: also_log, informee: informee }
       log(logger: logger, type: StartingMessage, method_context: method_context)
       result = if arguments.empty? && keyword_arguments.empty?
-                 informee.send(:"unwatched_#{method}")
+                 informee.send(:"unwatched_#{method}", &block)
                elsif arguments.empty? && !keyword_arguments.empty?
-                 informee.send(:"unwatched_#{method}", **keyword_arguments)
+                 informee.send(:"unwatched_#{method}", **keyword_arguments, &block)
                elsif !arguments.empty? && keyword_arguments.empty?
-                 informee.send(:"unwatched_#{method}", *arguments)
+                 informee.send(:"unwatched_#{method}", *arguments, &block)
                elsif !arguments.empty? && !keyword_arguments.empty?
-                 informee.send(:"unwatched_#{method}", *arguments, **keyword_arguments)
+                 informee.send(:"unwatched_#{method}", *arguments, **keyword_arguments, &block)
                end
       log(logger: logger, type: DoneMessage, method_context: method_context.merge(result: result))
       result

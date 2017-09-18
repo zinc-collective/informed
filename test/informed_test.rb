@@ -32,6 +32,11 @@ module Spec
     def method_with_both_kinds_of_arguments(unnamed_arg, named_arg:)
       "method with both kinds of arguments output #{unnamed_arg} #{named_arg}"
     end
+
+    def method_with_a_block
+      raise "woah there" unless block_given?
+      yield
+    end
   end
 
   SUPPORTED_LEVELS = [:debug, :info, :warn, :error, :fatal, :unknown]
@@ -140,6 +145,19 @@ describe Informed do
 
           it "calls the method and returns its result" do
             assert_equal("method without arguments output", result)
+          end
+
+          it "stores the call in the logs" do
+            refute logs.empty?, "logs were empty"
+          end
+        end
+
+        describe 'when the method takes a block arguments' do
+          let(:result) { consumer.method_with_a_block { "yey" } }
+          let(:method_to_inform_on) { :method_with_a_block }
+
+          it "calls the method and returns its result" do
+            assert_equal("yey", result)
           end
 
           it "stores the call in the logs" do
