@@ -1,9 +1,8 @@
 sudo: false
-language: ruby
 rvm:
   - 2.1.10
   - 2.2.7
   - 2.3.4
   - 2.4.2
-before_install: gem install bundler -v 1.15.4
-script: ruby test/informed_test.rb --documentation
+install: bin/setup
+script: bin/test

@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
+set -vx
+
+supported_versions=(2.1.10 2.2.8 2.3.5 2.4.2)
+for version in "${supported_versions[@]}" ; do
+  RBENV_VERSION=$version bundle exec ruby test/informed_test.rb --documentation
+done
+

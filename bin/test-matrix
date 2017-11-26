@@ -3,4 +3,4 @@ set -euo pipefail
 IFS=$'\n\t'
 set -vx
 
-(cd informed-ruby && bin/setup)
+(cd informed-ruby && bin/test-matrix)
