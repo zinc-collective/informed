@@ -1,4 +1,4 @@
-Ruby language implementation of [Informed](./README.md), an event-logging library that helps you understand what's happening in your application.
+Ruby language implementation of [Informed](../README.md), an event-logging library that helps you understand what's happening in your application.
 
 ## Usage
 

@@ -5,8 +5,5 @@ set -vx
 
 supported_versions=(2.1.10 2.2.8 2.3.5 2.4.2)
 for version in "${supported_versions[@]}" ; do
-  rbenv install -s $version
-  RBENV_VERSION=$version ruby --version
-  RBENV_VERSION=$version gem install bundler
-  RBENV_VERSION=$version bundle install
+  RBENV_VERSION=$version bin/setup
 done

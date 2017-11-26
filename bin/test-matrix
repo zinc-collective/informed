@@ -4,3 +4,4 @@ IFS=$'\n\t'
 set -vx
 
 (cd informed-ruby && bin/test-matrix)
+(cd informed-python && bin/test-matrix)

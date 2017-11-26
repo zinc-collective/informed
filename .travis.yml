@@ -1,8 +1,24 @@
 sudo: false
-rvm:
-  - 2.1.10
-  - 2.2.7
-  - 2.3.4
-  - 2.4.2
+dist: trusty
+cache:
+  directories:
+    /home/travis/.rbenv
+    /home/travis/.pyenv
+env:
+  - RBENV_VERSION="2.1.10"
+  - RBENV_VERSION="2.2.7"
+  - RBENV_VERSION="2.3.4"
+  - RBENV_VERSION="2.4.2"
+  - PYENV_VERSION="2.7"
+  - PYENV_VERSION="2.7-dev"
+  - PYENV_VERSION="3.3.6"
+  - PYENV_VERSION="3.3-dev"
+  - PYENV_VERSION="3.4.6"
+  - PYENV_VERSION="3.4-dev"
+  - PYENV_VERSION="3.5.3"
+  - PYENV_VERSION="3.5-dev"
+  - PYENV_VERSION="3.6.2"
+  - PYENV_VERSION="3.6-dev"
+  - PYENV_VERSION="3.7-dev"
 install: bin/setup
 script: bin/test

@@ -3,4 +3,14 @@ set -euo pipefail
 IFS=$'\n\t'
 set -vx
 
+if [ ! -d "$(rbenv root)/plugins" ]; then
+  echo "Installing ruby-build"
+  mkdir -p "$(rbenv root)"/plugins
+  git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
+fi
+
+if [ ! -z ${RBENV_VERSION+x} ]; then
+  rbenv install -s $RBENV_VERSION
+  gem install bundler
+fi
 bundle install

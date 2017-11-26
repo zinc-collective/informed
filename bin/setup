@@ -3,4 +3,20 @@ set -euo pipefail
 IFS=$'\n\t'
 set -vx
 
-(cd informed-ruby && bin/setup)
+
+if [ -z ${CI+x} ]; then
+  echo "A local build"
+  (cd informed-ruby && bin/setup)
+  (cd informed-python && bin/setup)
+else
+  echo "A CI build"
+  if [ ! -z ${RBENV_VERSION+x} ]; then
+    echo "RBENV VERSION: $RBENV_VERSION"
+    (cd informed-ruby && bin/setup)
+  fi
+
+  if [ ! -z ${PYENV_VERSION+x} ]; then
+    echo "PYENV VERSION: $PYENV_VERSION"
+    (cd informed-python && bin/setup)
+  fi
+fi

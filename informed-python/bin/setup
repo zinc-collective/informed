@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
+set -vx
+
+if [ ! -z ${PYENV_VERSION+x} ]; then
+  pyenv install -s $PYENV_VERSION
+fi
+pip install -r dev-requirements.txt
