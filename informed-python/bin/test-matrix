@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
+set -vx
+
+supported_versions=("2.7" "2.7-dev" "3.3.6" "3.3-dev" "3.4.7" "3.4-dev" "3.5.4" "3.5-dev" "3.6.3" "3.6-dev" "3.7-dev")
+for version in "${supported_versions[@]}" ; do
+  PYENV_VERSION=$version bin/test
+done
+

@@ -16,7 +16,7 @@ Informed does *not*:
 
 Informed is intended as a cross-language tool. The language and feature matrix is as follows:
 
-| | [Ruby](./informed-ruby/README.md) | Python | Node | BrowserJS |
+| | [Ruby](./informed-ruby/) | [Python](./informed-python/) | Node | BrowserJS |
 | -- | -- | -- | -- | -- |
 | Log calls | Yes | No | No | No |
 | Multiple loggers | No | No | No | No |
