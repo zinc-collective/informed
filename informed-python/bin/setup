@@ -4,6 +4,7 @@ IFS=$'\n\t'
 set -vx
 
 if [ ! -z ${PYENV_VERSION+x} ]; then
+  echo $(pyenv root)
   pyenv install -s $PYENV_VERSION
 fi
 pip install -r dev-requirements.txt
