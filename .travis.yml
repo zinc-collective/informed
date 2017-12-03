@@ -2,7 +2,6 @@ sudo: false
 dist: trusty
 cache:
   bundler: false
-  branch: no-symlink
   directories:
     - /home/travis/.rbenv
     - /opt/python
