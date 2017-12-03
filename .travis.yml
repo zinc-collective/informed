@@ -2,9 +2,10 @@ sudo: false
 dist: trusty
 cache:
   bundler: false
+  branch: no-symlink
   directories:
     - /home/travis/.rbenv
-    - /opt/pyenv/versions
+    - /opt/python
 env:
   - RBENV_VERSION="2.1.10"
   - RBENV_VERSION="2.2.7"
@@ -12,8 +13,6 @@ env:
   - RBENV_VERSION="2.4.2"
   - PYENV_VERSION="2.7"
   - PYENV_VERSION="2.7-dev"
-  - PYENV_VERSION="3.3.6"
-  - PYENV_VERSION="3.3-dev"
   - PYENV_VERSION="3.4.6"
   - PYENV_VERSION="3.4-dev"
   - PYENV_VERSION="3.5.3"
