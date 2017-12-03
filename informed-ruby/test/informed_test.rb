@@ -25,12 +25,16 @@ module Spec
       "method with arguments output #{arg1} #{arg2}"
     end
 
-    def method_with_keyword_arguments(a_named_kwarg:, arg2:)
+    def method_with_keyword_arguments(a_named_kwarg:, arg2:, colliding_named_arg: nil)
       "method with named arguments output #{a_named_kwarg} #{arg2}"
     end
 
     def method_with_both_kinds_of_arguments(unnamed_arg, named_arg:)
       "method with both kinds of arguments output #{unnamed_arg} #{named_arg}"
+    end
+
+    def colliding_named_arg
+      "oh noes! this shouldnt be shown!"
     end
 
     def method_with_a_block
@@ -126,6 +130,18 @@ describe Informed do
           refute logs.empty?, "logs were empty!"
           logs.each do |log|
             assert_equal "hey", log[:values][:a_named_kwarg]
+          end
+        end
+      end
+
+      describe "when :also_log has { values: [:colliding_named_arg] }" do
+        let(:method_to_inform_on) { :method_with_keyword_arguments }
+        let(:also_log) { { values: [:colliding_named_arg] } }
+        it "logs the value of the other method" do
+          consumer.method_with_keyword_arguments(a_named_kwarg: "hey", arg2: "there", colliding_named_arg: "there")
+          refute logs.empty?, "logs were empty!"
+          logs.each do |log|
+            assert_equal "there", log[:values][:colliding_named_arg]
           end
         end
       end

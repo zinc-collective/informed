@@ -197,8 +197,8 @@ module Informed
         if also_log[:values]
           message[:values] = {}
           also_log[:values].each do |local|
-            message[:values][local] = keyword_arguments[local] if keyword_arguments.key?(local)
-            message[:values][local] = informee.send(local) if informee.respond_to?(local, true)
+            message[:values][local] ||= keyword_arguments[local] if keyword_arguments.key?(local)
+            message[:values][local] ||= informee.send(local) if informee.respond_to?(local, true)
           end
         end
         message
