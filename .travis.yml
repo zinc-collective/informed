@@ -7,9 +7,12 @@ cache:
     - /opt/python
 env:
   - RBENV_VERSION="2.1.10"
-  - RBENV_VERSION="2.2.7"
-  - RBENV_VERSION="2.3.4"
-  - RBENV_VERSION="2.4.2"
+  - RBENV_VERSION="2.2.10"
+  - RBENV_VERSION="2.3.7"
+  - RBENV_VERSION="2.4.8"
+  - RBENV_VERSION="2.5.7"
+  - RBENV_VERSION="2.6.5"
+  - RBENV_VERSION="2.7.0"
   - PYENV_VERSION="2.7"
   - PYENV_VERSION="2.7-dev"
   - PYENV_VERSION="3.4.6"
