@@ -6,11 +6,11 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    minitest (5.10.3)
+    minitest (5.14.0)
     minitest-documentation (1.0.0)
       minitest (~> 5.2)
     rake (10.5.0)
-    yard (0.9.9)
+    yard (0.9.24)
 
 PLATFORMS
   ruby
@@ -24,4 +24,4 @@ DEPENDENCIES
   yard (~> 0.9)
 
 BUNDLED WITH
-   1.16.0
+   1.17.2

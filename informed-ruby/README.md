@@ -12,16 +12,19 @@ gem 'informed', '~> 1.0'
 
 And then execute:
 
-    $ bundle
+```shell
+bundle
+```
 
 Or install it yourself as:
 
-    $ gem install informed
+```
+gem install informed
+```
 
 ### Instrument
 
-```
-
+```ruby
 class FancyService
   attr_accessor :fanciness
   include Informed
@@ -77,6 +80,7 @@ may provide a logger to informed that is interface compatible with the Logger
 class in the Ruby standard library.
 
 To do so either:
+
 * Set `Informed.logger` to your application logger. (Rails Example:
   `Informed.logger = Rails.logger`)
 * Define an instance method `logger` on the informed upon class and have it
