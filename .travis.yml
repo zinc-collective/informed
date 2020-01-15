@@ -8,7 +8,8 @@ env:
   - RBENV_VERSION="2.1.10"
   - RBENV_VERSION="2.2.10"
   - RBENV_VERSION="2.3.7"
-  - RBENV_VERSION="2.4.8"
+  # Ruby 2.4.8 has some installation issues I am unsure how to fix
+  # - RBENV_VERSION="2.4.8"
   - RBENV_VERSION="2.5.7"
   - RBENV_VERSION="2.6.5"
   - RBENV_VERSION="2.7.0"
@@ -20,6 +21,7 @@ env:
   - PYENV_VERSION="3.5-dev"
   - PYENV_VERSION="3.6.2"
   - PYENV_VERSION="3.6-dev"
-  - PYENV_VERSION="3.7-dev"
+  # Python 3.7 has some installation issues in CI I am unsure how to fix
+  # - PYENV_VERSION="3.7-dev"
 install: bin/setup
 script: bin/test
