@@ -10,7 +10,7 @@ GEM
     minitest-documentation (1.0.0)
       minitest (~> 5.2)
     rake (13.0.1)
-    yard (0.9.24)
+    yard (0.9.35)
 
 PLATFORMS
   ruby
